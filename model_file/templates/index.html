@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>House Price Calculator</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>House Price Calculator</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="text" name="Avg. Area Income" placeholder=" Input average income in area" required="required" />
+    <input type="text" name="Avg. Area House Age" placeholder=" Input average area house age in area" required="required" />
+		<input type="text" name="Avg. Area Number of Rooms" placeholder=" Input average number of rooms in area" required="required" />
+    <input type="text" name="Avg. Area Number of Bedroom" placeholder=" Input average number of bedrooms in area" required="required" />
+    <input type="text" name="Area Population" placeholder=" Input Area Population" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict House Price </button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ <img src="/static/images/Original.svg" style="width: 400px;position: absolute;bottom: 10px;left: 10px;" alt="Company Logo"/>
+
+</body>
+</html>
